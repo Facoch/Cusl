@@ -1,0 +1,29 @@
+html{
+  margin: 2% 5% 2% 5%;
+}
+
+body{
+  margin-top: 1em;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding:0 1em 0 1em;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+#printers{
+  font-size: 110%;
+  padding: 0 10% 0 10%;
+}
+
+.well{
+  text-align: left;
+}
+.accordion-heading{
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+h2{
+  margin-top: 0;
+}

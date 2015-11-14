@@ -8,26 +8,70 @@
     <meta name="author" content="Filippo Carnovalini">
     <meta name="language" content="italian it"/>
     <meta name="title" content="Cusl Web Interface" />
-    <link type="text/css" rel="stylesheet" href="./css/style.css" media="all" />
+
+    <!-- JS -->
     <script type="text/javascript" src="./js/scripts.js"></script>
-		<link rel="icon" type="image/png" href="./img/favicon-32x32.png"/>
     <script type="text/javascript" src="./js/jquery-1.11.3.min.js"></script>
+    <!-- Bootsrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-theme.min.css" />
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="./css/style.css" media="all" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./img/favicon-32x32.png"/>
   </head>
   <body>
     <h1>Interfaccia Web Cusl</h1>
-    <h2>Controlla i contatori delle stampanti comodamente seduto!</h2>
-    <a id="ancoraAggiorna" href="./index.html">Aggiorna</a>
-    <dl id="printers">
-      <dt>BN1</dt>
-      <dd>Contatore: <span id="contatore1">n/d</span>
-        <br/><button>Salva Contatore BN1</button>
-        <p>Ultimo contatore salvato: <span id="contatoreSalvato1">n/d</span><p>
-      </dd>
-      <dt>BN2</dt>
-      <dd>Contatore: <span id="contatore2">n/d</span>
-        <br/><button>Salva Contatore BN2</button>
-        <p>Ultimo contatore salvato: <span id="contatoreSalvato2">n/d</span><p>
-      </dd>
-    </dl>
+    <h2><small>Controlla i contatori delle stampanti comodamente seduto!</small></h2>
+    <button type="button" class="btn btn-lg btn-success" id="aggiorna">Aggiorna</button>
+    <br/>
+    <br/>
+    <div class="row" id="printers">
+      <div class="col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">BN1</h3>
+          </div>
+          <div class="panel-body">
+            <p>Contatore: <code id="contatore1">n/d</code></p>
+            <p><button type="button" class="btn btn-sm btn-info" id="salva1">Salva</button></p>
+            <p>Ultimo contatore salvato: <code id="contatoreSalvato1">n/d</code></p>
+            <p><button type="button" class="btn btn-sm btn-info" id="scontrino1">Differenza</button></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">BN2</h3>
+          </div>
+          <div class="panel-body">
+            <p>Contatore: <code id="contatore2">n/d</code></p>
+            <p><button type="button" class="btn btn-sm btn-info" id="salva2">Salva</button></p>
+            <p>Ultimo contatore salvato: <code id="contatoreSalvato2">n/d</code></p>
+            <p><button type="button" class="btn btn-sm btn-info" id="scontrino2">Differenza</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse"
+           href="#istruzioni">Come si usa?</a>
+    </div>
+
+      <div id="istruzioni" class="accordion-body collapse">
+          <div class="well">
+            ISTRUZIONI:<br/>
+            Cliccando su "Aggiorna" si aggiornano i contatori delle stampanti. Cliccando su "Salva" salverai <em>in locale</em>
+            il contatore della stampante scelta. Cliccando su "Differenza" otterrai la differenza (e il relativo prezzo in
+            euro) tra il contatore attuale e il contatore salvato, ma non salverai automaticamente il nuovo contatore.
+            <br/>NB:
+            In locale vuol dire che NON sarà salvato su entrambi i computer! Per vedere il contatore salvato devi riaprire
+            la pagina con lo stesso browser sullo stesso computer. Nota inoltre che il contatore considerato dai pulsanti
+            salva e differenza è quello preso al momento dalla stampante, che può non corrispondere con quello scritto
+            se prima non si aggiorna la pagina.
+          </div>
+      </div>
   </body>
 </html>
