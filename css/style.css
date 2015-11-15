@@ -21,7 +21,14 @@ body{
 }
 .accordion-heading{
   margin-bottom: 1em;
+}
+
+#istruzioniToggler{
   text-align: left;
+}
+
+#sbaglioToggler{
+  text-align: right;
 }
 
 h2{

@@ -64,24 +64,36 @@
         </div>
       </div>
     </div>
-    <div class="accordion-heading">
-        <a class="accordion-toggle" data-toggle="collapse"
-           href="#istruzioni">Come si usa?</a>
-    </div>
-
-      <div id="istruzioni" class="accordion-body collapse">
-          <div class="well">
-            ISTRUZIONI:<br/>
-            Cliccando su "Aggiorna" si aggiornano i contatori delle stampanti. Cliccando su "Salva" salverai <em>in locale</em>
-            il contatore della stampante scelta. Cliccando su "Differenza" otterrai la differenza (e il relativo prezzo in
-            euro) tra il contatore attuale e il contatore salvato, ma non salverai automaticamente il nuovo contatore.
-            <br/>NB:
-            In locale vuol dire che NON sarà salvato su entrambi i computer! Per vedere il contatore salvato devi riaprire
-            la pagina con lo stesso browser sullo stesso computer. Nota inoltre che il contatore considerato dai pulsanti
-            salva e differenza è quello preso al momento dalla stampante, che può non corrispondere con quello scritto
-            se prima non si aggiorna la pagina.
-          </div>
+    <div class="row">
+      <div id="istruzioniToggler" class="accordion-heading col-xs-6">
+          <a class="accordion-toggle" data-toggle="collapse"
+             href="#istruzioni">Come si usa?</a>
       </div>
-      <p id="thanks">Per CUSL Nuova Vita, da Filippo "Facoch" Carnovalini<p>
+      <div id="sbaglioToggler" class="accordion-heading col-xs-6">
+          <a class="accordion-toggle" data-toggle="collapse"
+             href="#sbaglio">Ultimi contatori salvati</a>
+      </div>
+    </div>
+    <div id="sbaglio" class="accordion-body collapse">
+        <div class="well">
+          Ultimi Contatori:<br/>
+          BN1: <code id="ultimi1">n/d</code><br/>
+          BN2: <code id="ultimi2">n/d</code><br/>
+        </div>
+    </div>
+    <div id="istruzioni" class="accordion-body collapse">
+        <div class="well">
+          ISTRUZIONI:<br/>
+          Cliccando su "Aggiorna" si aggiornano i contatori delle stampanti. Cliccando su "Salva" salverai <em>in locale</em>
+          il contatore della stampante scelta. Cliccando su "Differenza" otterrai la differenza (e il relativo prezzo in
+          euro) tra il contatore attuale e il contatore salvato, ma non salverai automaticamente il nuovo contatore.
+          <br/>NB:
+          In locale vuol dire che NON sarà salvato su entrambi i computer! Per vedere il contatore salvato devi riaprire
+          la pagina con lo stesso browser sullo stesso computer. Nota inoltre che il contatore considerato dai pulsanti
+          salva e differenza è quello preso al momento dalla stampante, che può non corrispondere con quello scritto
+          se prima non si aggiorna la pagina.
+        </div>
+    </div>
+    <p id="thanks">Per CUSL Nuova Vita, da Filippo "Facoch" Carnovalini<p>
   </body>
 </html>
