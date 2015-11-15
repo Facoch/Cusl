@@ -13,7 +13,7 @@ body{
 
 #printers{
   font-size: 110%;
-  padding: 0 10% 0 10%;
+  padding: 0 7% 0 7%;
 }
 
 .well{
@@ -34,6 +34,14 @@ h2{
   font-style: italic;
   color: #999;
   top:1em;
+}
+
+.alert{
+  margin-bottom: 0;
+}
+
+code{
+  font-size: 97%;
 }
 
 .animate {

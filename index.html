@@ -41,8 +41,9 @@
             <p><button type="button" class="btn btn-md btn-info" id="salva1" onclick="salvaContatori(1)">
               <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Salva</button></p>
             <p>Ultimo contatore salvato: <code id="contatoreSalvato1">n/d</code></p>
-            <p><button type="button" class="btn btn-md btn-info" id="scontrino1">
+            <p><button disabled="true" type="button" class="btn btn-md btn-info" id="scontrino1" onclick="calcolaConto(1)">
               <span class="glyphicon glyphicon-eur" aria-hidden="true"></span> Differenza</button></p>
+            <p id="conto1" class="alert alert-success" role="alert"></p>
           </div>
         </div>
       </div>
@@ -56,8 +57,9 @@
             <p><button type="button" class="btn btn-md btn-info" id="salva2" onclick="salvaContatori(2)">
               <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Salva</button></p>
             <p>Ultimo contatore salvato: <code id="contatoreSalvato2">n/d</code></p>
-            <p><button type="button" class="btn btn-md btn-info" id="scontrino2">
+            <p><button disabled="true" type="button" class="btn btn-md btn-info" id="scontrino2" onclick="calcolaConto(2)">
               <span class="glyphicon glyphicon-eur" aria-hidden="true"></span> Differenza</button></p>
+            <p id="conto2" class="alert alert-success" role="alert"></p>
           </div>
         </div>
       </div>
