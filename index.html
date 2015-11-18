@@ -24,11 +24,7 @@
   <body onload="caricaPagina()">
     <h1>Utility Contatori Cusl</h1>
     <h2><small>Controlla i contatori delle stampanti comodamente seduto!</small></h2>
-    <button type="button" class="btn btn-lg btn-success" id="aggiornaFermo" onclick="aggiornaContatori()">
-      <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Aggiorna</button>
-    <button style="display:none" type="button" class="btn btn-lg btn-warning" id="aggiornaAnimato" disabled="true">
-      <span class="glyphicon glyphicon-refresh animate" aria-hidden="true"></span> Aggiorna</button>
-    <br/>
+
     <br/>
     <div class="row" id="printers">
       <div class="col-sm-6">
@@ -37,6 +33,11 @@
             <h3 class="panel-title"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> BN1</h3>
           </div>
           <div class="panel-body">
+            <p><button type="button" class="btn btn-lg btn-success" id="aggiornaFermo1" onclick="aggiornaContatore(1, scriviContatore)">
+              <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Aggiorna</button>
+            <button style="display:none" type="button" class="btn btn-lg btn-warning" id="aggiornaAnimato1" disabled="true">
+              <span class="glyphicon glyphicon-refresh animate" aria-hidden="true"></span> Aggiorna</button>
+            </p>
             <p>Contatore: <code id="contatore1">n/d</code></p>
             <p><button type="button" class="btn btn-md btn-info" id="salva1" onclick="salvaContatori(1)">
               <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Salva</button></p>
@@ -53,6 +54,11 @@
             <h3 class="panel-title"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> BN2</h3>
           </div>
           <div class="panel-body">
+            <p><button type="button" class="btn btn-lg btn-success" id="aggiornaFermo2" onclick="aggiornaContatore(2, scriviContatore)">
+              <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Aggiorna</button>
+            <button style="display:none" type="button" class="btn btn-lg btn-warning" id="aggiornaAnimato2" disabled="true">
+              <span class="glyphicon glyphicon-refresh animate" aria-hidden="true"></span> Aggiorna</button>
+            </p>
             <p>Contatore: <code id="contatore2">n/d</code></p>
             <p><button type="button" class="btn btn-md btn-info" id="salva2" onclick="salvaContatori(2)">
               <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Salva</button></p>
@@ -83,7 +89,8 @@
     </div>
     <div id="istruzioni" class="accordion-body collapse">
         <div class="well">
-          ISTRUZIONI:<br/>
+          <strong>Attenzione!</strong> Funziona solo su <strong>Chrome</strong> dove è installato un apposito plugin adeguatamente impostato.<br/>
+          <strong>Istruzioni</strong>:<br/>
           Cliccando su "Aggiorna" si aggiornano i contatori delle stampanti. Cliccando su "Salva" salverai <em>in locale</em>
           il contatore della stampante scelta. Cliccando su "Differenza" otterrai la differenza (e il relativo prezzo in
           euro) tra il contatore attuale e il contatore salvato, ma non salverai automaticamente il nuovo contatore.

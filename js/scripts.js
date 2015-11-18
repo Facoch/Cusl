@@ -2,6 +2,8 @@
   DRY, cos'è DRY?
 */
 
+var ip = ["0","127.0.0.1","127.0.0.1"];
+
 function caricaPagina(){
   document.getElementById('conto1').style.display = 'none';
   document.getElementById('conto2').style.display = 'none';
@@ -41,65 +43,85 @@ function aggiornaStoria(){
 }
 
 function aggiornaContatori(){
-  disabilitaAggiorna();
-  $.get("http://jsonplaceholder.typicode.com/posts", function(data){
-    fooGetCounter(data);
-    abilitaAggiorna();
-  });
+  aggiornaContatore(1, scriviContatore);
+  aggiornaContatore(2, scriviContatore);
 }
 
-function fooGetCounter(data){
-  document.getElementById('contatore1').innerHTML= Date.now();
-  document.getElementById('contatore2').innerHTML= Date.now();
+function fooCounter(data){
+  return Date.now();
+}
+
+function aggiornaContatore(id, callback){
+  disabilitaAggiorna(id);
+  //$.get("http://" + ip[id] + "/web/guest/en/websys/status/getUnificationCounter.cgi", function(data){
+  $.get("http://jsonplaceholder.typicode.com/comments?postId=1", function(data){
+  //  var counter = getCounter(data);
+    var counter = fooCounter(data);
+    callback(id, counter);
+    abilitaAggiorna(id);
+  }).fail(function(xhr,status,err) {
+    abilitaAggiorna(id);
+    console.log(xhr);
+    alert('Impossibile aggiornare! \n'+status+ ": " + xhr.responseText + '\nAvverti Facoch! E prendi il contatore a mano...');
+});;
+}
+
+function scriviContatore(id, counter){
+  document.getElementById('contatore'+ id).innerHTML = counter;
+}
+
+function getCounter(data){
+  var response = data;
+  var patt = new RegExp("Total</td><td nowrap>:</td><td nowrap>[0-9]*",'g');
+  var match = response.match(patt);
+  return match[0].replace('Total</td><td nowrap>:</td><td nowrap>','');
 }
 
 function salvaContatori(id){
-  var nome = "BN" + id
-  disabilitaAggiorna();
-  $.get("http://jsonplaceholder.typicode.com/posts", function(data){
-    fooGetCounter(data);
-    abilitaAggiorna();
-    var contatore = document.getElementById('contatore'+id).innerHTML;
-    localStorage[nome] = contatore;
-    document.getElementById('contatoreSalvato'+id).innerHTML = contatore;
-    document.getElementById('scontrino'+id).disabled = false;
-    var nuovo = [contatore];
-    var vecchio = localStorage["storia"+nome]
-    if (vecchio!=null){
-      nuovo = nuovo.concat(vecchio.split(",")).slice(0,5);;
-    }
-    localStorage["storia"+nome]= nuovo;
-    aggiornaStoria();
-  });
+  aggiornaContatore(id, salvaCallback);
+}
+
+function salvaCallback(id, counter){
+  scriviContatore(id, counter);
+  var nome = "BN" + id;
+  localStorage[nome] = counter;
+  document.getElementById('contatoreSalvato'+id).innerHTML = counter;
+  document.getElementById('scontrino'+id).disabled = false;
+  var nuovo = [counter];
+  var vecchio = localStorage["storia"+nome]
+  if (vecchio!=null){
+    nuovo = nuovo.concat(vecchio.split(",")).slice(0,5);;
+  }
+  localStorage["storia"+nome]= nuovo;
+  aggiornaStoria();
 }
 
 function calcolaConto(id){
-  var nome = "BN" + id
-  disabilitaAggiorna();
-  $.get("http://jsonplaceholder.typicode.com/posts", function(data){
-    fooGetCounter(data);
-    abilitaAggiorna();
-    var contatore = document.getElementById('contatore'+id).innerHTML;
-    var differenza = contatore - localStorage[nome];
-    document.getElementById('conto'+id).innerHTML = "Sono state fatte <em>"  + differenza +
-    " facciate</em> dall'ultimo contatore salvato, per un totale di <strong>" +
-    differenza*3/100 + "€.</strong><br/>(Non comprensivo di apertura file!)";
-    document.getElementById('contatoreSalvato'+id).innerHTML = contatore;
-    document.getElementById('conto'+id).style.display = 'block';
-  });
+  aggiornaContatore(id, contoCallback);
 }
 
-function disabilitaAggiorna(){
-  document.getElementById('aggiornaFermo').style.display= 'none';
-  document.getElementById('aggiornaAnimato').style.display= 'inline-block';
+function contoCallback(id, counter){
+  scriviContatore(id, counter);
+  var nome = "BN" + id;
+  var differenza = counter - localStorage[nome];
+  document.getElementById('conto'+id).innerHTML = "Sono state fatte <em>"  + differenza +
+  " facciate</em> dall'ultimo contatore salvato, per un totale di <strong>" +
+  differenza*3/100 + "€.</strong><br/>(Non comprensivo di apertura file!)";
+  document.getElementById('conto'+id).style.display = 'block';
 }
 
-function abilitaAggiorna(){
-  document.getElementById('aggiornaAnimato').style.display= 'none';
-  document.getElementById('aggiornaFermo').style.display= 'inline-block';
+function disabilitaAggiorna(id){
+  document.getElementById('aggiornaFermo'+id).style.display= 'none';
+  document.getElementById('aggiornaAnimato'+id).style.display= 'inline-block';
+}
+
+function abilitaAggiorna(id){
+  document.getElementById('aggiornaAnimato'+id).style.display= 'none';
+  document.getElementById('aggiornaFermo'+id).style.display= 'inline-block';
 }
 
 $(document).ready(function(){
+  // per comportamento a fisarmonica di istruzioni e storia
   $('#istruzioni').on('show.bs.collapse', function () {
     $('#sbaglio').collapse('hide');
   });
