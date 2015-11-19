@@ -62,7 +62,8 @@ function aggiornaContatore(id, callback){
   }).fail(function(xhr,status,err) {
     abilitaAggiorna(id);
     console.log(xhr);
-    alert('Impossibile aggiornare! \n'+status+ ": " + xhr.responseText + '\nAvverti Facoch! E prendi il contatore a mano...');
+    document.getElementById('testoErrore').innerHTML= status+ ": " + xhr.responseText + '\nAvverti Facoch! E prendi il contatore a mano...';
+    document.getElementById('erroreAggiornamento').style.display= 'block';
 });;
 }
 

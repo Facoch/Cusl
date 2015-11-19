@@ -24,7 +24,10 @@
   <body onload="caricaPagina()">
     <h1>Utility Contatori Cusl</h1>
     <h2><small>Controlla i contatori delle stampanti comodamente seduto!</small></h2>
-
+    <div id="erroreAggiornamento" class="alert alert-danger" style="display:none">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Impossibile aggiornare!</strong> <span id="testoErrore"></span>
+  </div>
     <br/>
     <div class="row" id="printers">
       <div class="col-sm-6">
