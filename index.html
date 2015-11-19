@@ -24,10 +24,7 @@
   <body onload="caricaPagina()">
     <h1>Utility Contatori Cusl</h1>
     <h2><small>Controlla i contatori delle stampanti comodamente seduto!</small></h2>
-    <div id="erroreAggiornamento" class="alert alert-danger" style="display:none">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Impossibile aggiornare!</strong> <span id="testoErrore"></span>
-  </div>
+    <div id="erroreAggiornamento"></div> 
     <br/>
     <div class="row" id="printers">
       <div class="col-sm-6">
@@ -47,7 +44,8 @@
             <p>Ultimo contatore salvato: <code id="contatoreSalvato1">n/d</code></p>
             <p><button disabled="true" type="button" class="btn btn-md btn-info" id="scontrino1" onclick="calcolaConto(1)">
               <span class="glyphicon glyphicon-eur" aria-hidden="true"></span> Differenza</button></p>
-            <p id="conto1" class="alert alert-success" role="alert"></p>
+            <p id="conto1"></p>
+
           </div>
         </div>
       </div>
@@ -68,7 +66,7 @@
             <p>Ultimo contatore salvato: <code id="contatoreSalvato2">n/d</code></p>
             <p><button disabled="true" type="button" class="btn btn-md btn-info" id="scontrino2" onclick="calcolaConto(2)">
               <span class="glyphicon glyphicon-eur" aria-hidden="true"></span> Differenza</button></p>
-            <p id="conto2" class="alert alert-success" role="alert"></p>
+              <p id="conto2"></p>
           </div>
         </div>
       </div>

@@ -5,8 +5,6 @@
 var ip = ["0","127.0.0.1","127.0.0.1"];
 
 function caricaPagina(){
-  document.getElementById('conto1').style.display = 'none';
-  document.getElementById('conto2').style.display = 'none';
   aggiornaContatori();
   var salvato1=localStorage['BN1'];
   var salvato2=localStorage['BN2'];
@@ -62,8 +60,10 @@ function aggiornaContatore(id, callback){
   }).fail(function(xhr,status,err) {
     abilitaAggiorna(id);
     console.log(xhr);
-    document.getElementById('testoErrore').innerHTML= status+ ": " + xhr.responseText + '\nAvverti Facoch! E prendi il contatore a mano...';
-    document.getElementById('erroreAggiornamento').style.display= 'block';
+    document.getElementById('erroreAggiornamento').innerHTML=  '<div class="alert alert-danger">' +
+    '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+    '<strong>Impossibile aggiornare! </strong>'  + status+ ": " + xhr.responseText +
+    '\nAvverti Facoch! E prendi il contatore a mano...</div>';
 });;
 }
 
@@ -105,10 +105,10 @@ function contoCallback(id, counter){
   scriviContatore(id, counter);
   var nome = "BN" + id;
   var differenza = counter - localStorage[nome];
-  document.getElementById('conto'+id).innerHTML = "Sono state fatte <em>"  + differenza +
+  document.getElementById('conto'+id).innerHTML = "<div class='alert alert-success'>" +
+"<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Sono state fatte <em>"  + differenza +
   " facciate</em> dall'ultimo contatore salvato, per un totale di <strong>" +
-  differenza*3/100 + "€.</strong><br/>(Non comprensivo di apertura file!)";
-  document.getElementById('conto'+id).style.display = 'block';
+  differenza*3/100 + "€.</strong><br/>(Non comprensivo di apertura file!)</div>";
 }
 
 function disabilitaAggiorna(id){
