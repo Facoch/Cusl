@@ -44,9 +44,10 @@ function aggiornaContatori(callback){
   disabilitaAggiorna();
   //$.get("http://" + ip + "/web/guest/en/websys/status/getUnificationCounter.cgi", function(data){
   $.get("http://jsonplaceholder.typicode.com/comments?postId=1", function(data){
-  //  var counter = getCounter(data);
-  var COLcounter = fooColorCounter(data);
-  var BNcounter = fooBNCounter(data);
+  //var COLcounter = getColorCounter(data);
+  //var BNcounter = getBNCounter(data);
+   var COLcounter = fooColorCounter(data);
+   var BNcounter = fooBNCounter(data);
   callback(COLcounter, BNcounter);
   abilitaAggiorna();
   }).fail(function(xhr,status,err) {
