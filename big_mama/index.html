@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <title>Big Mama - Contatori Cusl</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Interfaccia Web per controllare i contatori della Cusl">
+    <meta name="keywords" content="Cusl,Utility,Web,Contatori,seduto">
+    <meta name="author" content="Filippo Carnovalini">
+    <meta name="language" content="italian it"/>
+    <meta name="title" content="Contatori Cusl" />
+    <!-- JQuery -->
+    <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+    <!-- Bootsrap -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <!--link rel="stylesheet" href="./css/bootstrap-theme.min.css" /-->
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="../css/style.css" media="all" />
+    <!-- JS -->
+    <script type="text/javascript" src="./js/scripts.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../img/favicon-32x32.png"/>
+  </head>
+  <body onload="caricaPagina()">
+    <div style="background: url(../img/Pink-stroke-1.png) 0 0;">
+    <h1 >Big Mama</h1>
+  </div>
+    <h2><small>Controlla i contatori delle stampanti comodamente seduto!</small></h2>
+    <div id="erroreAggiornamento"></div>
+    <br/>
+    <div class="row" id="printers">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> BIG MAMA</h3>
+          </div>
+          <div class="panel-body">
+            <p><button type="button" class="btn btn-lg btn-success" id="aggiornaFermo1" onclick="aggiornaContatori(scriviContatore)">
+              <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Aggiorna</button>
+            <button style="display:none" type="button" class="btn btn-lg btn-warning" id="aggiornaAnimato1" disabled="true">
+              <span class="glyphicon glyphicon-refresh animate" aria-hidden="true"></span> Aggiorna</button>
+            </p>
+            <p>Contatore <br/>Colore: <code id="contatore1">n/d</code> - Bianco/Nero:  <code id="contatore2">n/d</code></p>
+            <p><button type="button" class="btn btn-md btn-info" id="salva1" onclick="salvaContatori()">
+              <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Salva</button></p>
+            <p>Ultimi contatori salvati: <br/>Colore: <code id="contatoreSalvato1">n/d</code> - Bianco/Nero: <code id="contatoreSalvato2">n/d</code></p>
+            <p><button disabled="true" type="button" class="btn btn-md btn-info" id="scontrino1" onclick="calcolaConto()">
+              <span class="glyphicon glyphicon-eur" aria-hidden="true"></span> Differenza</button></p>
+            <p id="conto1"></p>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div id="istruzioniToggler" class="accordion-heading col-xs-6">
+          <a class="accordion-toggle" data-toggle="collapse"
+             href="#istruzioni">Come si usa?</a>
+      </div>
+      <div id="sbaglioToggler" class="accordion-heading col-xs-6">
+          <a class="accordion-toggle" data-toggle="collapse"
+             href="#sbaglio">Ultimi contatori salvati</a>
+      </div>
+    </div>
+    <div id="sbaglio" class="accordion-body collapse">
+        <div class="well">
+          Ultimi Contatori:<br/>
+          Colore: <code id="ultimi1">n/d</code><br/>
+          Bianco e Nero: <code id="ultimi2">n/d</code><br/>
+        </div>
+    </div>
+    <div id="istruzioni" class="accordion-body collapse">
+        <div class="well">
+          <strong>Attenzione!</strong> Funziona solo su <strong>Chrome</strong> dove è installato un apposito plugin adeguatamente impostato.<br/>
+          <strong>Istruzioni</strong>:<br/>
+          Cliccando su "Aggiorna" si aggiornano i contatori delle stampanti. Cliccando su "Salva" salverai <em>in locale</em>
+          il contatore della stampante scelta. Cliccando su "Differenza" otterrai la differenza (e il relativo prezzo in
+          euro) tra il contatore attuale e il contatore salvato, ma non salverai automaticamente il nuovo contatore.
+          <br/>NB:
+          In locale vuol dire che NON sarà salvato su entrambi i computer! Per vedere il contatore salvato devi riaprire
+          la pagina con lo stesso browser sullo stesso computer. Nota inoltre che il contatore considerato dai pulsanti
+          salva e differenza è quello preso al momento dalla stampante, che può non corrispondere con quello scritto
+          se prima non si aggiorna la pagina.
+        </div>
+    </div>
+    <p id="thanks">Per CUSL Nuova Vita, da Filippo "Facoch" Carnovalini<p>
+  </body>
+</html>
