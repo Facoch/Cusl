@@ -124,10 +124,10 @@ function contoCallback(ColCounter, BNCounter){
   var BNDifferenza = BNCounter - localStorage['BMBN'];
   document.getElementById('conto1').innerHTML = "<div class='alert alert-success'>" +
 "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Sono state fatte <em>"  + ColDifferenza +
-  " facciate a colori</em> dall'ultimo contatore salvato, per un costo di <strong>" +
-  ColDifferenza*30/100 + "€</strong>, e "  + BNDifferenza +
-    " facciate in Bianco e Nero</em> dall'ultimo contatore salvato, per un costo di <strong>" +
-    BNDifferenza*3/100 + "€</strong><br/><strong>Totale complessivo: "+ (ColDifferenza*30 + BNDifferenza*3)/100 + "€</strong></div>";
+  " facciate a colori</em> e <em>"  + BNDifferenza +
+    " facciate in bianco e nero</em> dall'ultimo contatore salvato, per un costo di <br/><strong>" +
+  (ColDifferenza*30/100).toFixed(2) + "€</strong> Colore <br/> <strong>" +
+    (BNDifferenza*3/100).toFixed(2) + "€</strong> Bianco e Nero<br/><strong>Totale: "+ ((ColDifferenza*30 + BNDifferenza*3)/100).toFixed(2) + "€</strong></div>";
 }
 
 function disabilitaAggiorna(){

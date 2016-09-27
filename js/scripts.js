@@ -106,9 +106,9 @@ function contoCallback(id, counter){
   var nome = "BN" + id;
   var differenza = counter - localStorage[nome];
   document.getElementById('conto'+id).innerHTML = "<div class='alert alert-success'>" +
-"<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Sono state fatte <em>"  + differenza +
-  " facciate</em> dall'ultimo contatore salvato, per un totale di <strong>" +
-  differenza*3/100 + "€.</strong><br/>(Non comprensivo di apertura file!)</div>";
+"<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Dall'ultimo contatore salvato sono state fatte <em>"  + differenza +
+  " facciate</em><br/> <strong>Costo: " +
+  (differenza*3/100).toFixed(2) + " €.</strong></div>";
 }
 
 function disabilitaAggiorna(id){
