@@ -65,3 +65,11 @@ code{
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
 }
+
+#bigmama{
+  color: hotpink;
+}
+
+div.panel-heading.bigmama{
+  background-color: hotpink;
+}

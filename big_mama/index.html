@@ -22,16 +22,15 @@
     <link rel="icon" type="image/png" href="../img/favicon-32x32.png"/>
   </head>
   <body onload="caricaPagina()">
-    <div style="background: url(../img/Pink-stroke-1.png) 0 0;">
-    <h1 >Big Mama</h1>
-  </div>
-    <h2><small>Controlla i contatori delle stampanti comodamente seduto!</small></h2>
+
+    <h1 id="bigmama">Big Mama</h1>
+    <h2><small>Porta sempre rispetto a Big Mama.</small></h2>
     <div id="erroreAggiornamento"></div>
     <br/>
     <div class="row" id="printers">
       <div class="col-sm-8 col-sm-offset-2">
         <div class="panel panel-default">
-          <div class="panel-heading">
+          <div class="panel-heading bigmama">
             <h3 class="panel-title"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> BIG MAMA</h3>
           </div>
           <div class="panel-body">
@@ -52,7 +51,9 @@
         </div>
       </div>
 
+
     </div>
+    <a class="btn btn-lg btn-primary" href="../index.html">Contatori Stampanti BN</a>
     <div class="row">
       <div id="istruzioniToggler" class="accordion-heading col-xs-6">
           <a class="accordion-toggle" data-toggle="collapse"
